@@ -1,6 +1,7 @@
 import twitter
 import blogger
 import youtube
+import amazon
 
 def getData(queryString, source):
 
@@ -13,5 +14,8 @@ def getData(queryString, source):
 	elif source == "blogger":
 		#get blogger data
 		return blogger.getBloggerContent(queryString)
+	elif source == 'amazon'
+		#get amazon data
+		return amazon.getAmazonContent(queryString)
 	else:
-		return "Error!"
+		return "Error: bad data source!"
