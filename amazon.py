@@ -52,7 +52,7 @@ def getAmazonContent(query):
 					if imageSetNode.attributes["Category"].value != "primary":
 						continue
 					
-					mediumImage = imageSetNode.getElementsByTagName('MediumImage')
+					mediumImage = imageSetNode.getElementsByTagName('LargeImage')
 					
 					url = mediumImage[0].getElementsByTagName('URL')[0]
 					
