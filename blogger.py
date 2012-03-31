@@ -7,6 +7,7 @@ from threading import Thread, Lock
 
 dataLock = Lock()
 data = []
+completed = 0
 
 def visible(element):
     if element.parent.name in ['style', 'script', '[document]', 'head', 'title']:
@@ -22,29 +23,32 @@ def getSearchURL(query):
 	       'v=1.0&rsz=8&q=site:*.blogspot.com%20'+query)
 	
 def scrapeBlog(blog):
+	global completed
 	blogurl = blog['postUrl']
-	
-	soup = Soup(urllib2.urlopen(blogurl))
-	post = select(soup, 'div.post-body')
-	
-	title = select(soup, 'h1.title')
-	titleNoTags = Soup(str(title))
-	rawTitle = ''.join(filter(visible, titleNoTags.findAll(text=True))).strip()
-	#print rawTitle
-	
-	noScript = Soup(str(post))
-	rawText = ''.join(filter(visible, noScript.findAll(text=True))).strip()
-	#print raw_text
-	
 	blogData = {}
-	blogData['source'] = str(rawTitle)
-	blogData['title'] = blog['titleNoFormatting']
-	blogData['content'] = str(rawText)
-	blogData['date'] = blog['publishedDate']
-	blogData['url'] = str(blogurl)
-	
+	try:
+		soup = Soup(urllib2.urlopen(blogurl))
+		post = select(soup, 'div.post-body')
+
+		title = select(soup, 'h1.title')
+		titleNoTags = Soup(str(title))
+		rawTitle = ''.join(filter(visible, titleNoTags.findAll(text=True))).strip()
+		#print rawTitle
+
+		noScript = Soup(str(post))
+		rawText = ''.join(filter(visible, noScript.findAll(text=True))).strip()
+		#print raw_text
+		
+		blogData['source'] = str(rawTitle)
+		blogData['title'] = blog['titleNoFormatting']
+		blogData['content'] = str(rawText)
+		blogData['date'] = blog['publishedDate']
+		blogData['url'] = str(blogurl)
+	except e:
+		pass
 	with dataLock:
 		data.append(blogData)
+		completed += 1
 	
 	
 
@@ -71,8 +75,11 @@ def getBloggerContent(query):
 		threadCount += 1
 	
 	while(True):
-		if (len(data) == threadCount):
+		if (completed == threadCount):
 			break
+	for d in data:
+		if d == {}:
+			data.remove(d)
 
 	return data
 		
@@ -87,4 +94,3 @@ def getBloggerContent(query):
 		#url
 
 		#get 'postURL' entry for each post and scrape post content
-print getBloggerContent('iPhone')
