@@ -69,4 +69,3 @@ def getBloggerContent(query):
 		#url
 
 		#get 'postURL' entry for each post and scrape post content
-print getBloggerContent('iPhone')

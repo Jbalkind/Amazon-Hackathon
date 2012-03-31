@@ -6,7 +6,7 @@ def getSearchURL(query):
 
 def getTwitterContent(query):
 
-	url = getSearchURL('query')
+	url = getSearchURL(query)
 	request = urllib2.Request(url, None)
 	response = urllib2.urlopen(request)
 
