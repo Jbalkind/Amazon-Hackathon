@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dip" >
+    
+    <RelativeLayout
+        android:id="@+id/youtube1_collapser"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    	
+        <TextView
+            android:id="@+id/productview1_youtubeLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/youtube"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true"
+            android:padding="10dip"/>
+        
+		<GridView
+		    android:id="@+id/productview1_videolist"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:numColumns="2"
+	     	android:layout_alignParentLeft="true"
+	        android:layout_below="@id/productview1_youtubeLabel"  />
+	</RelativeLayout>
+</RelativeLayout>

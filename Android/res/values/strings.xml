@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GiraffaCakes</string>
+
+    <string name="buynow">Buy now</string>
+    <string name="add_to_basket">Add to Basket</string>
+    <string name="twitter">Twitter</string>
+    <string name="blogger">Blogger</string>
+    <string name="overall">Overall</string>
+    <string name="youtube">Youtube</string>
+    <string name="description">Description</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+</resources>

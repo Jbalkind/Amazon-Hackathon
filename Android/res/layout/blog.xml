@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dip" >
+    
+    <ImageView
+        android:id="@+id/blogger_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/blogger_s"
+        android:paddingRight="10dip" />
+    
+    <ImageView
+        android:id="@+id/blog_expand"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/expand_dark"
+        android:paddingLeft="10dip" />
+    
+	<TextView
+	    android:id="@+id/blog_content"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_toLeftOf="@id/blog_expand"
+	    android:layout_toRightOf="@id/blogger_logo"
+	    android:layout_alignParentTop="true"
+	    android:textSize="18sp"
+	    android:text="lolololololololololololol" />
+	<!--
+	<TextView
+	    android:id="@+id/blog_timestamp"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_toLeftOf="@id/blog_expand"
+	    android:layout_toRightOf="@id/blogger_logo"
+	    android:layout_below="@id/blog_content"
+	    android:textSize="12sp"
+	    android:text="30th March 17:00" />
+	    -->
+</RelativeLayout>

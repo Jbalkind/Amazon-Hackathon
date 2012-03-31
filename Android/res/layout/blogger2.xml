@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dip">
+    
+    <RelativeLayout
+        android:id="@+id/blogger2_collapser"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+        <TextView
+            android:id="@+id/productview2_bloggerLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/blogger"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true"
+            android:padding="10dip"/>
+        
+	    <com.giraffacakes.hackathon.widget.TripleBarWidget
+	    	android:id="@+id/productview2_sentimentBlogger"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="20dip"
+	     	android:layout_alignParentLeft="true"
+	        android:layout_below="@id/productview2_bloggerLabel"  />
+	    
+	    <ListView
+	        android:id="@+id/productview2_bloglist"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_below="@id/productview2_sentimentBlogger" />
+    </RelativeLayout>
+</RelativeLayout>

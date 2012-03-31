@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip">
+    
+    <LinearLayout
+        android:id="@+id/productview2_header"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+        android:background="@drawable/roundcorners"
+        android:padding="10dip">
+        
+	    <TextView
+	        android:id="@+id/productview2_name"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textSize="20sp"
+	        android:singleLine="true"
+	        android:ellipsize="marquee"
+	        android:textStyle="bold" />
+	    
+	    <TextView
+		    android:id="@+id/amazon_price2"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textStyle="italic"
+		    android:layout_marginTop="5dip"/>
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/productview2_buybutton"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/add_to_basket"
+        android:background="@drawable/bg_amazon"
+        android:paddingLeft="50dip"
+        android:paddingRight="50dip"
+        android:layout_marginTop="10dip" />
+    
+    <LinearLayout
+        android:id="@+id/productview2_tabs"
+        android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="4.0"
+	    android:layout_below="@id/productview2_header"
+	    android:layout_marginTop="5dip"
+	    android:padding="10dip"
+	    android:background="@drawable/roundcorners">
+        
+        <ImageView
+            android:id="@+id/productview2_amazontab" 
+            android:src="@drawable/amazon_logo"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1.0"
+	        android:background="#88FFDF90"
+	        android:padding="10dip"
+	        android:onClick="toggleAmazon"/>
+        
+        <ImageView
+            android:id="@+id/productview2_twittertab" 
+            android:src="@drawable/twitter_s"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1.0"
+	        android:background="#8863B2C8"
+	        android:padding="10dip"
+	        android:onClick="toggleTwitter"/>
+        
+        <ImageView
+            android:id="@+id/productview2_bloggertab" 
+            android:src="@drawable/blogger_s"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1.0"
+	        android:background="#88F9C85C"
+	        android:padding="10dip"
+	        android:onClick="toggleBlogger"/>
+        
+        <ImageView
+            android:id="@+id/productview2_youtubetab" 
+            android:src="@drawable/yt_s"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1.0"
+	        android:background="#88F9675C"
+	        android:padding="10dip"
+	        android:onClick="toggleYoutube"/>
+    </LinearLayout>
+    
+    <FrameLayout
+        android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@id/productview2_tabs"
+	    android:layout_above="@id/productview2_buybutton"
+	    android:background="@drawable/roundcorners"
+	    android:layout_marginTop="5dip">
+	    
+        <include
+	        android:id="@+id/productview2_amazonContainer"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        layout="@layout/amazon2"/>
+        
+        <include
+	        android:id="@+id/productview2_twitterContainer"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        layout="@layout/twitter2"/>
+        
+        <include
+            android:id="@+id/productview2_bloggerContainer"
+            android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        layout="@layout/blogger2"/>
+	      
+        <include
+            android:id="@+id/productview2_youtubeContainer"
+            android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        layout="@layout/youtube2"/>
+    </FrameLayout>
+    
+</RelativeLayout>
