@@ -1,0 +1,54 @@
+
+
+.page-header {
+	margin-top: 80px;
+}
+
+.precentageBar span {
+	display: block;
+	height: 20px;
+	float: left;
+}
+
+span.good {
+	width: 33%;
+	background: #ADDE4E;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+span.neutral {
+	width: 33%;
+	background: #FFFFB1;
+}
+
+span.bad {
+	width: 33%;
+	background: #A62A16;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+ul.main {
+	clear: both;
+	padding-top: 20px;
+	list-style-type: none;
+	margin: 0 5px 0 5px;
+}
+
+ul.main li {
+	padding: 5px 0 5px 0;
+}
+
+ul.main li .date {
+	font-size: 75%;
+	color: #999;
+}

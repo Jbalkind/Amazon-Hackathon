@@ -21,7 +21,7 @@ def visible(element):
 def getSearchURL(query):
 	return ('https://ajax.googleapis.com/ajax/services/search/blogs?' +
 	       'v=1.0&rsz=8&q=site:*.blogspot.com%20'+query)
-	
+
 def scrapeBlog(blog):
 	global completed
 	blogurl = blog['postUrl']
@@ -38,25 +38,26 @@ def scrapeBlog(blog):
 		noScript = Soup(str(post))
 		rawText = ''.join(filter(visible, noScript.findAll(text=True))).strip()
 		#print raw_text
-		
+
 		blogData['source'] = str(rawTitle)
 		blogData['title'] = blog['titleNoFormatting']
 		blogData['content'] = str(rawText)
 		blogData['date'] = blog['publishedDate']
 		blogData['url'] = str(blogurl)
+
 	except e:
 		pass
 	with dataLock:
 		data.append(blogData)
 		completed += 1
-	
-	
 
-	
+
+
+
 def getBloggerContent(query):
-	
+
 	global data
-	
+
 	url = getSearchURL(query)
 	request = urllib2.Request(url, None, {'Referer': "noreferrer"})
 	response = urllib2.urlopen(request)
@@ -65,15 +66,15 @@ def getBloggerContent(query):
 	results = simplejson.load(response)
 
 	#print results
-	
+
 	threadPool = []
-	
+
 	threadCount = 0
 
 	for blog in results['responseData']['results']:
 		threadPool += [Thread(target=scrapeBlog, args=(blog,)).start()]
 		threadCount += 1
-	
+
 	while(True):
 		if (completed == threadCount):
 			break
@@ -82,15 +83,3 @@ def getBloggerContent(query):
 			data.remove(d)
 
 	return data
-		
-
-		#[s.extract() for s in noScript('script')]
-		#print noScript
-
-		#source = blog title
-		#title = post title
-		#content  = post
-		#date
-		#url
-
-		#get 'postURL' entry for each post and scrape post content

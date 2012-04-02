@@ -1,6 +1,9 @@
 import urllib2
 import simplejson as json
 
+from datetime import datetime
+import time
+
 def getSearchURL(query):
 	return ('http://search.twitter.com/search.json?q='+query)
 
@@ -26,6 +29,7 @@ def getTwitterContent(query):
 		tweetData['date'] = tweet['created_at']
 		tweetData['url'] = 'http://twitter.com/#!/' + tweet['from_user'] + '/status/' + tweet['id_str']
 		tweetData['thumb'] = tweet['profile_image_url']
+
 	
 		data += [tweetData]
 	
